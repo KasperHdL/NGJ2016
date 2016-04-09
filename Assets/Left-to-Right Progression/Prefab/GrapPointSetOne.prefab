@@ -48,7 +48,7 @@ GameObject:
   - 136: {fileID: 13689600}
   - 23: {fileID: 2349096}
   m_Layer: 0
-  m_Name: GrapPointSetOne
+  m_Name: GrapPointSetBeta
   m_TagString: Grappoint Set
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ GameObject:
   - 136: {fileID: 13629568}
   - 23: {fileID: 2378012}
   m_Layer: 0
-  m_Name: GrapPoint (4)
+  m_Name: GrapPoint (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.23869, y: 0, z: 0.8857774}
+  m_LocalPosition: {x: 0, y: 0, z: 5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498760}
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.396714, y: 0, z: 3.9367898}
+  m_LocalPosition: {x: 6.396714, y: -0, z: 1.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498760}
@@ -151,11 +151,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.81701, y: 0, z: 3.8383696}
+  m_LocalPosition: {x: 35.536, y: 0, z: 3.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498760}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &495364
 Transform:
   m_ObjectHideFlags: 1
@@ -167,7 +167,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498760}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &498760
 Transform:
   m_ObjectHideFlags: 1
@@ -175,14 +175,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135100}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -7.51, y: -0.056040574, z: -0.00000012215295}
+  m_LocalPosition: {x: -9, y: -5.4, z: -0.00000012215295}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children:
   - {fileID: 419742}
   - {fileID: 428786}
   - {fileID: 426650}
-  - {fileID: 463564}
   - {fileID: 495364}
+  - {fileID: 463564}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2317894
@@ -457,8 +457,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000

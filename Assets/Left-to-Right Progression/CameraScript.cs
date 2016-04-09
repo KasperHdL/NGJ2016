@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraScript : MonoBehaviour
 {
-    private float i;
+    private float i, cameraSpeed = 1;
     private float countdownTime;
     public enum gameState
     {
@@ -17,14 +17,23 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            cameraSpeed += 0.25f;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            cameraSpeed -= 0.25f;
+        }
         if (_currentState == gameState.Menu)
         {
 
         }
         else if (_currentState == gameState.Begin)
         {
-            //Insert initial countdown
-            i += Time.deltaTime;
+         
+             i += Time.deltaTime;
+
             if (i >= 3)
                 _currentState = gameState.GameTime;
 
@@ -42,6 +51,6 @@ public class CameraScript : MonoBehaviour
     }
     public void CameraMovement()
     {
-        transform.position = new Vector3(transform.position.x + Time.deltaTime, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x +(cameraSpeed*Time.deltaTime), transform.position.y, transform.position.z);
     }
 }

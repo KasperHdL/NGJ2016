@@ -5,6 +5,7 @@ public class ObjectSpawn : MonoBehaviour {
     [SerializeField]
     private GameObject[] setOfGrapPoints = new GameObject[1];
     private GameObject[] ActiveGrapPoints = new GameObject[5];
+    private float sizeToVectorFactor = 3.5536f;
     private Vector3 _CameraPrePos, _currentCameraPos;
     private Bounds _cameraBounds;
 	// Use this for initialization
@@ -21,19 +22,20 @@ public class ObjectSpawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         _cameraBounds = CameraSizing.CameraBounds(this.GetComponent<Camera>());
-        _currentCameraPos = _cameraBounds.center;
-           if (_CameraPrePos.x < (_currentCameraPos.x-_cameraBounds.extents.x*1.5))
+           if (_CameraPrePos.x < (_cameraBounds.center.x- (_cameraBounds.extents.x/2) * sizeToVectorFactor))
         {
+            _CameraPrePos = _cameraBounds.center;
+            
             ArrayManager(Instantiate(setOfGrapPoints[0],
-                                    new Vector2((_currentCameraPos.x + _cameraBounds.extents.x) * 2, _currentCameraPos.y),
+                                    new Vector2((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y),
                                     setOfGrapPoints[0].transform.rotation), 
                                     ActiveGrapPoints);
             
-            _CameraPrePos = _currentCameraPos;
+            
         }
 	
 	}
-    void ArrayManager(Object other, GameObject[] array)
+    private void ArrayManager(Object other, GameObject[] array)
     {
         Destroy(array[0]);
         for (int i = 1; i < array.Length; i++)
