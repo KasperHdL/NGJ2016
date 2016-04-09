@@ -34,7 +34,7 @@ public class CameraScript : MonoBehaviour
          
              i += Time.deltaTime;
 
-            if (i >= 3)
+            if (i >= 10)
                 _currentState = gameState.GameTime;
 
         }
@@ -52,5 +52,15 @@ public class CameraScript : MonoBehaviour
     public void CameraMovement()
     {
         transform.position = new Vector3(transform.position.x +(cameraSpeed*Time.deltaTime), transform.position.y, transform.position.z);
+    }
+    private IEnumerator CountDown()
+    {
+        //3
+        yield return new WaitForSeconds(1);
+        //2
+        yield return new WaitForSeconds(1);
+        //1
+        yield return new WaitForSeconds(1);
+        //Go
     }
 }

@@ -19,7 +19,7 @@ public class ObjectSpawn : MonoBehaviour {
                                     setOfGrapPoints[0].transform.rotation),
                                     ActiveGrapPoints);
         ArrayManager(Instantiate(setOfGrapPoints[1],
-                                    new Vector2((_cameraBounds.center.x + (_cameraBounds.extents.x * (sizeToVectorFactor/2))), _cameraBounds.center.y),
+                                    new Vector2(_cameraBounds.center.x + ((_cameraBounds.extents.x/2) * sizeToVectorFactor), _cameraBounds.center.y),
                                     setOfGrapPoints[0].transform.rotation),
                                     ActiveGrapPoints);
         ArrayManager(Instantiate(setOfGrapPoints[2],
