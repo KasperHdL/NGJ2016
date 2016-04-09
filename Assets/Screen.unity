@@ -87,6 +87,47 @@ NavMeshSettings:
 --- !u!127 &5
 LevelGameManager:
   m_ObjectHideFlags: 0
+--- !u!1 &84485438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 84485440}
+  - 114: {fileID: 84485439}
+  m_Layer: 0
+  m_Name: Networking Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &84485439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 84485438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832487335361fd34fb82726f37134d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gonnaCastMan: 1
+  controllerPanel: {fileID: 1302400347}
+--- !u!4 &84485440
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 84485438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100, y: -100.000008, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &154710413
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,9 +763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a508f667739b014490d3efa7e70d9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 569554349}
-  panelImage: {fileID: 1607644214}
-  controllerImage: {fileID: 800326739}
+  debug: 0
+  controlledLocally: 0
+  player_prefab: {fileID: 0}
 --- !u!1 &1185330924
 GameObject:
   m_ObjectHideFlags: 0
