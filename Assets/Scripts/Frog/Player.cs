@@ -27,18 +27,21 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(_controller == null)return;
-        if(_controller.debug){
+        
+        #if UNITY_ANDROID
+            if(_controller.GetButtonState())
+                grappler.ShootTounge(_controller.GetControllerDirection());
+            else
+                grappler.RetractTounge();
+        #else
+            
             if(Input.GetKeyUp(KeyCode.Space))
                 grappler.RetractTounge();
             if(Input.GetKeyDown(KeyCode.Space)){
                 grappler.ShootTounge((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
             }
-         }else{
-            if(_controller.GetButtonState())
-                grappler.ShootTounge(_controller.GetControllerDirection());
-            else
-                grappler.RetractTounge();
-        } 
+        #endif
+      
         
         
 	}
