@@ -39,6 +39,7 @@ public class CameraScript : MonoBehaviour
         // GAME SCROLL BEGIN
         else if (CastDisplayManager.IsCasting())
         {
+            logo.enabled = false;
          
              i += Time.deltaTime;
             if(i>=6 && !coroutineStarted)
