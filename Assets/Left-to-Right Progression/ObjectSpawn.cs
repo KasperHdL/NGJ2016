@@ -31,7 +31,7 @@ public class ObjectSpawn : MonoBehaviour {
 	void Update () {
         _cameraBounds = CameraSizing.CameraBounds(this.GetComponent<Camera>());
         
-           if (_CameraPrePos.x < (_cameraBounds.center.x- (_cameraBounds.extents.x/2) * sizeToVectorFactor))
+        if (_CameraPrePos.x < (_cameraBounds.center.x- (_cameraBounds.extents.x/2) * sizeToVectorFactor))
         {
             _CameraPrePos = _cameraBounds.center;
             index = Random.Range(1, setOfGrapPoints.Length);
