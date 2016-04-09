@@ -4,51 +4,68 @@ using UnityEngine.EventSystems;
 using System.Collections;
 
 public class Player : MonoBehaviour {
-
 	public Canvas canvas;
 	public Image panelImage;
+	public Image controllerImage;
 
 	private int screenX;
 	private int screenY;
 	private Vector2 circleCenterPoint;
 	private Vector2 circleFingerPoint;
 	private Vector2 controlVector;
+	private RectTransform rt;
+	private float lastRotation;
+	private bool button;
+	private int buttonFingerIndex;
 
 	// Use this for initialization
 	void Start () {
+		button = false;
+		rt = controllerImage.GetComponent<RectTransform>();
+		lastRotation = 0;
+
 		screenX = Screen.width;
 		screenY = Screen.height;
 		circleCenterPoint = new Vector2(screenX/4, screenY/4);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		for(int i = 0; i < Input.touchCount; i++){
 			if(Input.GetTouch(i).phase == TouchPhase.Began && Input.GetTouch(i).position.x > screenX/2){
-				ButtonPressed();
+				button = true;
+				buttonFingerIndex = i;
 			}
 
 			if(Input.GetTouch(i).phase == TouchPhase.Moved && Input.GetTouch(i).position.x < screenX/2){
-				circleFingerPoint = Input.GetTouch(0).position;
+				circleFingerPoint = Input.GetTouch(i).position;
 				Vector2 temp = (circleFingerPoint - circleCenterPoint);
 				controlVector = temp/temp.magnitude;
-				panelImage.color = new Color(controlVector.x, controlVector.y, 0);
+
+				Vector2 tempRight = new Vector2(0, 1);
+
+				float rotationTemp = Vector2.Angle(tempRight, controlVector);
+
+				rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
+
+				lastRotation = rotationTemp;
 			}
+		}
+
+		if(button = true && Input.GetTouch(buttonFingerIndex).phase == TouchPhase.Ended){
+			button = false;
 		}
 	}
 
-	public void ButtonPressed(){
-		Debug.Log("HEY");
-		float r;
-		float g;
-		float b;
+	public Vector2 GetControllerDirection(){
+		return controlVector;
+	}
 
-		r = Random.Range(0, 1f);
-		g = Random.Range(0, 1f);
-		b = Random.Range(0, 1f);
+	public bool GetButtonState(){
+		return button;
+	}
 
-		Color col = new Color(r,g,b);
-
+	public void SetPanelColor(Color col){
 		panelImage.color = col;
 	}
 }
