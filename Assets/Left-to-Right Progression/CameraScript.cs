@@ -5,6 +5,7 @@ public class CameraScript : MonoBehaviour
 {
     private float i, cameraSpeed = 1;
     private float countdownTime;
+    private bool coroutineStarted = false;
     public enum gameState
     {
         Menu,
@@ -33,7 +34,11 @@ public class CameraScript : MonoBehaviour
         {
          
              i += Time.deltaTime;
-
+            if(i>=6 && !coroutineStarted)
+            {
+                StartCoroutine(CountDown());
+                coroutineStarted = true;
+            }
             if (i >= 10)
                 _currentState = gameState.GameTime;
 
