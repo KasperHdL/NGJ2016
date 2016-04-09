@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour {
         else
         {
            buttonDown = (bool) stream.ReceiveNext();
-            Debug.Log("Receiving: " + buttonDown);
         }
         
         
