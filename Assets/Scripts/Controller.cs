@@ -47,28 +47,32 @@ public class Controller : MonoBehaviour {
      
         #if !UNITY_EDITOR
            for(int i = 0; i < Input.touchCount; i++){
-                if(Input.GetTouch(i).phase == TouchPhase.Began && Input.GetTouch(i).position.x > screenX/2){
-                    button = true;
-                    buttonFingerIndex = i;
+                TouchPhase phase = Input.GetTouch(i).phase;
+                if(phase != TouchPhase.Ended && phase != TouchPhase.Canceled){
+                    if(Input.GetTouch(i).position.x > screenX/2){
+                        button = true;
+                        buttonFingerIndex = i;
+                    }
+
+                    if(Input.GetTouch(i).position.x < screenX/2){
+                        circleFingerPoint = Input.GetTouch(i).position;
+                        Vector2 temp = (circleFingerPoint - circleCenterPoint);
+                        controlVector = temp/temp.magnitude;
+
+                        Vector2 tempRight = new Vector2(0, 1);
+
+                        float rotationTemp = Vector2.Angle(tempRight, controlVector);
+
+                        rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
+
+                        lastRotation = rotationTemp;
+                    }
+
+                }else{
+                    if(Input.GetTouch(i).position.x > screenX/2){
+                        button = false;
+                    }
                 }
-
-                if(Input.GetTouch(i).phase == TouchPhase.Moved && Input.GetTouch(i).position.x < screenX/2){
-                    circleFingerPoint = Input.GetTouch(i).position;
-                    Vector2 temp = (circleFingerPoint - circleCenterPoint);
-                    controlVector = temp/temp.magnitude;
-
-                    Vector2 tempRight = new Vector2(0, 1);
-
-                    float rotationTemp = Vector2.Angle(tempRight, controlVector);
-
-                    rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
-
-                    lastRotation = rotationTemp;
-                }
-            }
-
-            if(button == true && Input.GetTouch(buttonFingerIndex).phase == TouchPhase.Ended){
-                button = false;
             }
         #else
        
