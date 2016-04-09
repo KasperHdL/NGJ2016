@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 using Photon;
 
 public class NetworkingManager : PunBehaviour {
 
+    public static bool isCaster;
+    
+    public bool gonnaCastMan = false;
+
 	// Use this for initialization
 	void Start () {
             PhotonNetwork.ConnectUsingSettings("0.1");
+            isCaster = gonnaCastMan;
     }
  
     void OnGUI()
@@ -16,11 +23,16 @@ public class NetworkingManager : PunBehaviour {
 	
 	public override void OnJoinedLobby()
     {
-        PhotonNetwork.JoinRandomRoom();
+        if(isCaster)
+            PhotonNetwork.CreateRoom("Frog");
+        else
+            PhotonNetwork.JoinRoom("Frog");
+        
     }
-    void OnPhotonRandomJoinFailed()
+    void OnPhotonJoinRoomFailed(object[] arr)
     {
-        PhotonNetwork.CreateRoom(null);
+            Debug.LogError("The Google Caster must create the photon room");
+            
     }
     void OnJoinedRoom()
     {
@@ -28,5 +40,8 @@ public class NetworkingManager : PunBehaviour {
         PlayerController controller = go.GetComponent<PlayerController>();
         controller.enabled = true;
         controller.controlledLocally = true;
+        
+        
+        
     }
 }
