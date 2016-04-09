@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 480280}
   - 212: {fileID: 21255756}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CountdownGo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
