@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 using System.Collections;
 
 public class Controller : MonoBehaviour {
-    public Image panelImage;
 	private int screenX;
 	private int screenY;
 	private Vector2 circleCenterPoint;
@@ -45,11 +44,8 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(!controlledLocally)return;
-        if(debug)
-            button = Input.GetKey(KeyCode.Space);
-        else
-        {
-            for(int i = 0; i < Input.touchCount; i++){
+        #if UNITY_ANDROID
+           for(int i = 0; i < Input.touchCount; i++){
                 if(Input.GetTouch(i).phase == TouchPhase.Began && Input.GetTouch(i).position.x > screenX/2){
                     button = true;
                     buttonFingerIndex = i;
@@ -72,8 +68,12 @@ public class Controller : MonoBehaviour {
 
             if(button = true && Input.GetTouch(buttonFingerIndex).phase == TouchPhase.Ended){
                 button = false;
-            }
-        }
+            }NITY_ANDROID
+        
+        #else 
+             button = Input.GetKey(KeyCode.Space);
+        
+        #endif
 	}
 
 	public Vector2 GetControllerDirection(){
@@ -84,9 +84,6 @@ public class Controller : MonoBehaviour {
 		return button;
 	}
 
-	public void SetPanelColor(Color col){
-		panelImage.color = col;
-	}
     
     
     public void SetPlayer(Player player){
