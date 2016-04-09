@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using Google.Cast.RemoteDisplay;
 
 public class CameraScript : MonoBehaviour
 {
     private float i, cameraSpeed = 1;
     private float countdownTime;
     private bool coroutineStarted = false;
-    public enum gameState
-    {
-        Menu,
-        Begin,
-        GameTime,
-        EndSlow
-    }
-    public gameState _currentState = gameState.Begin;
-    
+    private CastRemoteDisplayManager CastDisplayManager;
+
+    public Image logo;
+    public bool slowMotion = false;
+    public bool start = false;
+    public bool cameraMovement = false;
+
     // Update is called once per frame
     void Update()
     {
+        // DEBUGGING IF'S FOR ADJUSTMENT
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             cameraSpeed += 0.25f;
@@ -26,11 +27,17 @@ public class CameraScript : MonoBehaviour
         {
             cameraSpeed -= 0.25f;
         }
-        if (_currentState == gameState.Menu)
-        {
 
+        // TITLE SCREEN
+        if (!CastDisplayManager.IsCasting() && logo.enabled == false)
+        {
+            logo.enabled = true;
+            start = false;
+            cameraMovement = false;
+            i = 0;
         }
-        else if (_currentState == gameState.Begin)
+        // GAME SCROLL BEGIN
+        else if (CastDisplayManager.IsCasting())
         {
          
              i += Time.deltaTime;
@@ -40,14 +47,13 @@ public class CameraScript : MonoBehaviour
                 coroutineStarted = true;
             }
             if (i >= 10)
-                _currentState = gameState.GameTime;
-
+                start = true;
         }
-        else if (_currentState == gameState.GameTime)
-        {
+        else if (start && !cameraMovement){
             CameraMovement();
+            cameraMovement = true;
         }
-        else if (_currentState == gameState.EndSlow)
+        else if (slowMotion)
         {
             //MLG theme+zoom+slowmotion
         }
@@ -68,4 +74,5 @@ public class CameraScript : MonoBehaviour
         yield return new WaitForSeconds(1);
         //Go
     }
+
 }
