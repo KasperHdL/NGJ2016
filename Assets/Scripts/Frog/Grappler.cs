@@ -61,11 +61,14 @@ public class Grappler : MonoBehaviour {
     public void ShootTounge(Vector2 dir){
         isToungeOut = true;
         tounge.transform.position = transform.position;
-        tounge.gameObject.SetActive(true);
+
+        lineRenderer.SetPosition(0,transform.position);
+        lineRenderer.SetPosition(1,tounge.transform.position);
         joint.enabled = false;
         lineRenderer.enabled = true;
-        tounge.ShootTounge(dir);
         spriteRenderer.sprite = spriteToungeOut;
+        tounge.gameObject.SetActive(true);
+        tounge.ShootTounge(dir);
 
     }
     
@@ -93,7 +96,7 @@ public class Grappler : MonoBehaviour {
         joint.distance = toungeLength;
         
         
-        if(toungeLength > tounge.transform.position.y || transform.position.y < 0){ //change when water is in the game
+        if(toungeLength > tounge.transform.position.y){ //change when water is in the game
             joint.frequency = 1.5f * (toungeLength - pullLength) / pullLength;
             joint.distance = tounge.transform.position.y;
             

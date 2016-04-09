@@ -17,7 +17,7 @@ GameObject:
   - 58: {fileID: 5897788}
   m_Layer: 8
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37637dc22b72de64187a8b3f777626ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
   maxSpeed: 5000
   grappler: {fileID: 11473872}
   body: {fileID: 0}
@@ -187,6 +188,10 @@ Prefab:
       propertyPath: tounge_prefab
       value: 
       objectReference: {fileID: 187350, guid: 8493c5e26c8166a48b678ceb80c5286f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157366}

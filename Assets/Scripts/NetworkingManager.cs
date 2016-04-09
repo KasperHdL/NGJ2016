@@ -11,6 +11,11 @@ public class NetworkingManager : PunBehaviour {
     
     public Image controllerPanel;
    
+    void Start(){
+        PhotonNetwork.ConnectUsingSettings("0.1");
+        
+    }
+
     void OnGUI()
     {
         GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
@@ -18,9 +23,6 @@ public class NetworkingManager : PunBehaviour {
 	
 	public override void OnJoinedLobby()
     {
-        if(isCaster)
-            PhotonNetwork.CreateRoom("Frog");
-        else
             PhotonNetwork.JoinRoom("Frog");
         
     }
@@ -32,7 +34,7 @@ public class NetworkingManager : PunBehaviour {
     
     public void CastingStarted(){
         isCaster = true;
-        PhotonNetwork.ConnectUsingSettings("0.1");
+            PhotonNetwork.CreateRoom("Frog");
         
     }
     

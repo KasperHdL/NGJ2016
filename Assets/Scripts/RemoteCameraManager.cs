@@ -50,8 +50,7 @@ public class RemoteCameraManager : MonoBehaviour {
       CastRemoteDisplayManager manager) {
     displayManager.RemoteDisplayCamera = MainCamera;
     RemoteDisplayCamera.enabled = true;
-    networkingManager.CastingStarted();
-  }
+    }
 
   public void OnRemoteDisplaySessionEnd(CastRemoteDisplayManager manager) {
     displayManager.RemoteDisplayCamera = null;

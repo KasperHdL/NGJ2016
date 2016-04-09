@@ -8,10 +8,10 @@ public class Controller : MonoBehaviour {
 	private int screenY;
 	private Vector2 circleCenterPoint;
 	private Vector2 circleFingerPoint;
-	private Vector2 controlVector;
+	public Vector2 controlVector;
 	private RectTransform rt;
 	private float lastRotation;
-	private bool button;
+	public bool button;
 	private int buttonFingerIndex;
     
     public bool debug = false;
@@ -44,7 +44,8 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(!controlledLocally)return;
-        #if UNITY_ANDROID
+     
+        #if !UNITY_EDITOR
            for(int i = 0; i < Input.touchCount; i++){
                 if(Input.GetTouch(i).phase == TouchPhase.Began && Input.GetTouch(i).position.x > screenX/2){
                     button = true;
@@ -66,14 +67,12 @@ public class Controller : MonoBehaviour {
                 }
             }
 
-            if(button = true && Input.GetTouch(buttonFingerIndex).phase == TouchPhase.Ended){
+            if(button == true && Input.GetTouch(buttonFingerIndex).phase == TouchPhase.Ended){
                 button = false;
             }
-        
-        #else 
-             button = Input.GetKey(KeyCode.Space);
-        
-        #endif
+        #else
+       
+       #endif
 	}
 
 	public Vector2 GetControllerDirection(){

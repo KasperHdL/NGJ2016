@@ -8,8 +8,8 @@ public class CameraScript : MonoBehaviour
     private float i, cameraSpeed = 1;
     private float countdownTime;
     private bool coroutineStarted = false;
-    private CastRemoteDisplayManager CastDisplayManager;
 
+    public CastRemoteDisplayManager CastDisplayManager;
     public Image logo;
     public bool slowMotion = false;
     public bool start = false;
@@ -18,6 +18,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // DEBUGGING IF'S FOR ADJUSTMENT
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -58,8 +59,6 @@ public class CameraScript : MonoBehaviour
         {
             //MLG theme+zoom+slowmotion
         }
-        else
-            throw new System.Exception();
     }
     public void CameraMovement()
     {
