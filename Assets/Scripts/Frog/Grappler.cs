@@ -20,16 +20,24 @@ public class Grappler : MonoBehaviour {
     public bool isToungeJointed;
     
     public float pullIncrement;
+    
+    public float angularSpeed;
     public bool isToungePulling;
+    
+    private Rigidbody2D body;
     
     void Awake(){
         joint = GetComponent<SpringJoint2D>();
+        body = GetComponent<Rigidbody2D>();
         joint.enabled = false;
     }
     
     void Update(){
         if(isToungeOut){
-            toungeLength = (tounge.transform.position - transform.position).magnitude;
+            Vector2 v = (tounge.transform.position - transform.position);
+            toungeLength = v.magnitude;
+            transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * (Mathf.Atan2(v.y,v.x) - Mathf.PI/2));
+            
             
         }
     }
@@ -46,6 +54,14 @@ public class Grappler : MonoBehaviour {
     public void RetractTounge(){
         isToungeOut = false;
         joint.enabled = false;
+        
+        if(isToungeJointed){
+            Vector2 d = (transform.position - tounge.transform.position).normalized;
+            float angle = Vector2. Angle(d,body.velocity);
+            Debug.Log("d: " + d + ", b: " + body.velocity.normalized + " angle: " + angle);
+            body.angularVelocity = angularSpeed * Mathf.Sign(-angle) * body.velocity.magnitude;
+        }
+        
         isToungeJointed = false;
         tounge.gameObject.SetActive(false);
     }
