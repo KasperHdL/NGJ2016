@@ -6,38 +6,53 @@ public class Grappler : MonoBehaviour {
     [HideInInspector]
     public SpringJoint2D joint;
     [HeaderAttribute("Physics")]
-    public float maxLength;
-    public float retractLength;
     
     public float pullLength;
 
     private float toungeLength;
     
     public Tounge tounge;
+    public GameObject tounge_prefab;
     
     public bool isToungeOut = false;
     
     public bool isToungeJointed;
     
-    public float pullIncrement;
-    
     public float angularSpeed;
     public bool isToungePulling;
     
     private Rigidbody2D body;
+    private LineRenderer lineRenderer;
+    
+    public Sprite spriteToungeIn;
+    public Sprite spriteToungeOut;
+    
+    private SpriteRenderer spriteRenderer;
     
     void Awake(){
-        joint = GetComponent<SpringJoint2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = spriteToungeIn;
         body = GetComponent<Rigidbody2D>();
+        lineRenderer = GetComponent<LineRenderer>();
+        if(tounge == null)
+            tounge = ((GameObject)Instantiate(tounge_prefab,Vector3.zero,Quaternion.identity)).GetComponent<Tounge>();
+        
+        tounge.grappler = this;
+        
+        joint = GetComponent<SpringJoint2D>();
+        joint.connectedBody = tounge.GetComponent<Rigidbody2D>();
         joint.enabled = false;
+        
     }
+   
     
     void Update(){
         if(isToungeOut){
             Vector2 v = (tounge.transform.position - transform.position);
             toungeLength = v.magnitude;
-            transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * (Mathf.Atan2(v.y,v.x) - Mathf.PI/2));
-            
+            transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * (Mathf.Atan2(v.y,v.x)));
+            lineRenderer.SetPosition(0,transform.position);
+            lineRenderer.SetPosition(1,tounge.transform.position);
             
         }
     }
@@ -48,12 +63,18 @@ public class Grappler : MonoBehaviour {
         tounge.transform.position = transform.position;
         tounge.gameObject.SetActive(true);
         joint.enabled = false;
+        lineRenderer.enabled = true;
         tounge.ShootTounge(dir);
+        spriteRenderer.sprite = spriteToungeOut;
+
     }
     
     public void RetractTounge(){
         isToungeOut = false;
         joint.enabled = false;
+        lineRenderer.enabled = false;
+        spriteRenderer.sprite = spriteToungeIn;
+        
         
         if(isToungeJointed){
             Vector2 d = (transform.position - tounge.transform.position).normalized;
@@ -73,7 +94,7 @@ public class Grappler : MonoBehaviour {
         
         
         if(toungeLength > tounge.transform.position.y || transform.position.y < 0){ //change when water is in the game
-            joint.frequency = (toungeLength - pullLength) / pullLength;
+            joint.frequency = 1.5f * (toungeLength - pullLength) / pullLength;
             joint.distance = tounge.transform.position.y;
             
         }

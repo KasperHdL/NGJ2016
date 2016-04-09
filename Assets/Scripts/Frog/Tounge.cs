@@ -6,6 +6,7 @@ public class Tounge : MonoBehaviour {
     [HideInInspector]
     public Rigidbody2D body;
     
+    [HideInInspector]
     public Grappler grappler;
     
     public float forceTounge = 10000;

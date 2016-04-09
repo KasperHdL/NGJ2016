@@ -29,12 +29,12 @@ public class NetworkingManager : PunBehaviour {
             PhotonNetwork.JoinRoom("Frog");
         
     }
-    void OnPhotonJoinRoomFailed(object[] arr)
+    public override void OnPhotonJoinRoomFailed(object[] arr)
     {
             Debug.LogError("The Google Caster must create the photon room");
             
     }
-    void OnJoinedRoom()
+    public override void OnJoinedRoom()
     {
         GameObject go = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity, 0);
         PlayerController controller = go.GetComponent<PlayerController>();
