@@ -41,6 +41,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonDown: 0
+  controlledLocally: 0
+  player_prefab: {fileID: 157366, guid: 1f440bb44f60c6e4d85533b42b9d5fde, type: 2}
 --- !u!114 &11440504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,6 +87,10 @@ Prefab:
       propertyPath: instantiationId
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: player_prefab
+      value: 
+      objectReference: {fileID: 157366, guid: 1f440bb44f60c6e4d85533b42b9d5fde, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 183984}
