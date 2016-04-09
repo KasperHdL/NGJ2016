@@ -37,7 +37,7 @@ public class NetworkingManager : PunBehaviour {
     public override void OnJoinedRoom()
     {
         GameObject go = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity, 0);
-        PlayerController controller = go.GetComponent<PlayerController>();
+        Controller controller = go.GetComponent<Controller>();
         controller.enabled = true;
         controller.controlledLocally = true;
         

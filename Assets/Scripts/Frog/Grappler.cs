@@ -79,7 +79,7 @@ public class Grappler : MonoBehaviour {
         if(isToungeJointed){
             Vector2 d = (transform.position - tounge.transform.position).normalized;
             float angle = Vector2. Angle(d,body.velocity);
-            Debug.Log("d: " + d + ", b: " + body.velocity.normalized + " angle: " + angle);
+            //Debug.Log("d: " + d + ", b: " + body.velocity.normalized + " angle: " + angle);
             body.angularVelocity = angularSpeed * Mathf.Sign(-angle) * body.velocity.magnitude;
         }
         
