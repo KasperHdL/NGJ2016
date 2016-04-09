@@ -9,17 +9,8 @@ public class NetworkingManager : PunBehaviour {
 
     public static bool isCaster;
     
-    public bool gonnaCastMan = false;
-    
     public Image controllerPanel;
-    
-
-	// Use this for initialization
-	void Start () {
-        PhotonNetwork.ConnectUsingSettings("0.1");
-        isCaster = gonnaCastMan;
-    }
- 
+   
     void OnGUI()
     {
         GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
@@ -37,6 +28,12 @@ public class NetworkingManager : PunBehaviour {
     {
             Debug.LogError("The Google Caster must create the photon room");
             
+    }
+    
+    public void CastingStarted(){
+        isCaster = true;
+        PhotonNetwork.ConnectUsingSettings("0.1");
+        
     }
     
     

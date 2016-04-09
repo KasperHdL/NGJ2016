@@ -68,7 +68,7 @@ public class Controller : MonoBehaviour {
 
             if(button = true && Input.GetTouch(buttonFingerIndex).phase == TouchPhase.Ended){
                 button = false;
-            }NITY_ANDROID
+            }
         
         #else 
              button = Input.GetKey(KeyCode.Space);

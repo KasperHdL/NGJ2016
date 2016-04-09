@@ -8,6 +8,8 @@ public class RemoteCameraManager : MonoBehaviour {
   public CastRemoteDisplayManager displayManager;
   public Camera RemoteDisplayCamera;
   public Camera MainCamera;
+  
+  public NetworkingManager networkingManager;
 
   void Start() {
     if (!displayManager) {
@@ -48,6 +50,7 @@ public class RemoteCameraManager : MonoBehaviour {
       CastRemoteDisplayManager manager) {
     displayManager.RemoteDisplayCamera = MainCamera;
     RemoteDisplayCamera.enabled = true;
+    networkingManager.CastingStarted();
   }
 
   public void OnRemoteDisplaySessionEnd(CastRemoteDisplayManager manager) {
