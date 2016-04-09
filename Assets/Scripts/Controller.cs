@@ -46,7 +46,7 @@ public class Controller : MonoBehaviour {
 
 				float rotationTemp = Vector2.Angle(tempRight, controlVector);
 
-				rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
+				//rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
 
 				lastRotation = rotationTemp;
 			}
