@@ -37,10 +37,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 183984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd6ddc8d0f86e1408565b0882d802d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a508f667739b014490d3efa7e70d9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonDown: 0
+  panelImage: {fileID: 0}
+  debug: 0
   controlledLocally: 0
   player_prefab: {fileID: 157366, guid: 1f440bb44f60c6e4d85533b42b9d5fde, type: 2}
 --- !u!114 &11440504

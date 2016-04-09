@@ -94,7 +94,7 @@ MonoBehaviour:
   tounge_prefab: {fileID: 187350, guid: 8493c5e26c8166a48b678ceb80c5286f, type: 2}
   isToungeOut: 0
   isToungeJointed: 0
-  angularSpeed: 100
+  angularSpeed: 10
   isToungePulling: 0
   spriteToungeIn: {fileID: 21300000, guid: dc037e391efd47340bd8b02f04188fbc, type: 3}
   spriteToungeOut: {fileID: 21300000, guid: 593f1bc730cfc9f498859b798ad6b1d4, type: 3}
@@ -126,7 +126,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 1, z: 0}
   m_Parameters:
-    startWidth: .5
+    startWidth: .300000012
     endWidth: .100000001
     m_StartColor:
       serializedVersion: 2
