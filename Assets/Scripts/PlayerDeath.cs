@@ -26,9 +26,10 @@ public class PlayerDeath : MonoBehaviour {
             PlayerDie(other.gameObject);
         }
     }
+    
     void PlayerDie(GameObject player)
     {
         //Disable the player for the round
-        Destroy(player,1);
+        player.enabled = false;
     }
 }
