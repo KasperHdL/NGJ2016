@@ -4,6 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     public Controller _controller;
+    public ReticleRotation reticle;
     
     public float maxSpeed = 5000;
     
@@ -30,9 +31,12 @@ public class Player : MonoBehaviour {
 
         bool isButtonDown = _controller.GetButtonState();
 
+        Vector2 dir = _controller.GetControllerDirection();
+        reticle.SetDirection(dir);
+
         if(isButtonDown && !grappler.isToungeOut){
 //            Debug.Log("Running");
-            grappler.ShootTounge(_controller.GetControllerDirection());
+            grappler.ShootTounge(dir);
         }
         else if(!isButtonDown && grappler.isToungeOut)
             grappler.RetractTounge();
