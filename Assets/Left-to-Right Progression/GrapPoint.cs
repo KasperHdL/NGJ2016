@@ -11,6 +11,6 @@ public class GrapPoint : MonoBehaviour {
 	void Update () {
         EulerTurn = (Time.deltaTime*rotationSpeed);
         transform.Rotate(0,0,EulerTurn);
-        Debug.Log(new Vector3(0, 0, transform.rotation.z + EulerTurn));
+        //Debug.Log(new Vector3(0, 0, transform.rotation.z + EulerTurn));
 	}
 }

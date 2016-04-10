@@ -37,13 +37,15 @@ public class CameraScript : MonoBehaviour
         {
          
              i += Time.deltaTime;
-            if(i>=6 && !coroutineStarted)
+            if(!coroutineStarted)
             {
                 StartCoroutine(CountDown());
                 coroutineStarted = true;
             }
-            if (i >= 10)
+            if (i >= 4)
+            
                 _currentState = gameState.GameTime;
+            
 
         }
         else if (_currentState == gameState.GameTime)
