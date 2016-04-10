@@ -7,6 +7,8 @@ public class PlayerDeath : MonoBehaviour {
     private Bounds _cameraBounds;
     private GameObject[] _playersArray = new GameObject[4];
     private List<GameObject> _players;
+    
+    
    
 	
 	void Awake () {

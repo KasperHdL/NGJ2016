@@ -10,23 +10,30 @@ public class ObjectSpawn : MonoBehaviour {
     private Vector3 _CameraPrePos, _currentCameraPos;
     private Bounds _cameraBounds;
     private int index; 
+    
+    public Transform container;
    
 	void OnEnable () {
         _cameraBounds = CameraSizing.CameraBounds(this.GetComponent<Camera>());
         _currentCameraPos = _cameraBounds.center;
         _CameraPrePos = _cameraBounds.center;
-        ArrayManager(Instantiate(setOfGrapPoints[6],
-                                    new Vector2(_cameraBounds.center.x, _cameraBounds.center.y),
-                                    setOfGrapPoints[0].transform.rotation),
-                                    ActiveGrapPoints);
-        ArrayManager(Instantiate(setOfGrapPoints[1],
-                                    new Vector2(_cameraBounds.center.x + ((_cameraBounds.extents.x/2) * sizeToVectorFactor), _cameraBounds.center.y),
-                                    setOfGrapPoints[0].transform.rotation),
-                                    ActiveGrapPoints);
-        ArrayManager(Instantiate(setOfGrapPoints[2],
-                                    new Vector2((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y),
-                                    setOfGrapPoints[0].transform.rotation),
-                                    ActiveGrapPoints);
+        index = 0;
+        
+        GameObject go = (GameObject)Instantiate(setOfGrapPoints[6], new Vector2(_cameraBounds.center.x, _cameraBounds.center.y), setOfGrapPoints[0].transform.rotation);
+        go.transform.parent = container;
+        
+        ArrayManager(go, ActiveGrapPoints);
+                                    
+         go = (GameObject)Instantiate(setOfGrapPoints[1], new Vector2(_cameraBounds.center.x + ((_cameraBounds.extents.x/2) * sizeToVectorFactor), _cameraBounds.center.y), setOfGrapPoints[0].transform.rotation);
+        go.transform.parent = container;
+        
+        ArrayManager(go, ActiveGrapPoints);
+                                    
+         go = (GameObject)Instantiate(setOfGrapPoints[2], new Vector2((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y), setOfGrapPoints[0].transform.rotation);
+        go.transform.parent = container;
+            
+                                    
+        ArrayManager(go,ActiveGrapPoints);
 	}
 
 	void Update () {
@@ -36,10 +43,8 @@ public class ObjectSpawn : MonoBehaviour {
         {
             _CameraPrePos = _cameraBounds.center;
             index = Random.Range(1, setOfGrapPoints.Length);
-            ArrayManager(Instantiate(setOfGrapPoints[index],
-                                    new Vector2((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y),
-                                    setOfGrapPoints[0].transform.rotation), 
-                                    ActiveGrapPoints);
+            GameObject go = (GameObject)Instantiate(setOfGrapPoints[index], new Vector2((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y), setOfGrapPoints[0].transform.rotation);
+            ArrayManager(go, ActiveGrapPoints);
             
             
         }

@@ -18,6 +18,13 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private GameObject[] countDown = new GameObject[4];
     private GameObject Three, Two, One, Go;
+    
+    void OnEnable(){
+        start = false;
+        slowMotion = false;
+        cameraMovement = false;
+        coroutineStarted = false;
+    }
       
     // Update is called once per frame
     void Update()
