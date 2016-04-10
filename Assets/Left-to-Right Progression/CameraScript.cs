@@ -3,9 +3,12 @@ using System.Collections;
 
 public class CameraScript : MonoBehaviour
 {
-    private float i, cameraSpeed = 1;
-    private float countdownTime;
+    private float i, countdownTime, cameraSpeed = 1;
+    private int counter;
     private bool coroutineStarted = false;
+    [SerializeField]
+    private GameObject[] countDown = new GameObject[4];
+    private GameObject Three, Two, One, Go;
     public enum gameState
     {
         Menu,
@@ -51,8 +54,6 @@ public class CameraScript : MonoBehaviour
         {
             //MLG theme+zoom+slowmotion
         }
-        else
-            throw new System.Exception();
     }
     public void CameraMovement()
     {
@@ -60,12 +61,44 @@ public class CameraScript : MonoBehaviour
     }
     private IEnumerator CountDown()
     {
-        //3
+        Three = Instantiate(countDown[0], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        StartCoroutine(Iteration(Three));
         yield return new WaitForSeconds(1);
-        //2
+        Destroy(Three);
+
+
+        Two = Instantiate(countDown[1], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        StartCoroutine(Iteration(Two));
         yield return new WaitForSeconds(1);
-        //1
+        Destroy(Two);
+       
+
+        One = Instantiate(countDown[2], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        StartCoroutine(Iteration(One));
         yield return new WaitForSeconds(1);
-        //Go
+        Destroy(One);
+       
+
+        Go = Instantiate(countDown[3], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        StartCoroutine(Iteration(Go));
+        yield return new WaitForSeconds(1);
+        Destroy(Go);
+       
+    }
+
+    private IEnumerator Iteration(GameObject other)
+    {
+        counter = 0;
+        while(counter < 100)
+        {
+           
+            if(other == null)
+            {
+                yield break;
+            }
+            other.transform.localScale = new Vector3(other.transform.localScale.x + 5 * Time.deltaTime, other.transform.localScale.z, other.transform.localScale.y + 5 * Time.deltaTime);
+            counter++;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
