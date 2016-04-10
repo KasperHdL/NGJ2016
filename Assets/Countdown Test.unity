@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -2, y: 0}
-  parallaxSpeed: 5
+  parallaxSpeed: 3
   debug: 0
 --- !u!1 &324395902 stripped
 GameObject:
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 6
   debug: 0
 --- !u!1 &366049828 stripped
 GameObject:
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 8
   debug: 0
 --- !u!1 &431706567 stripped
 GameObject:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -2, y: 0}
-  parallaxSpeed: 5
+  parallaxSpeed: 3
   debug: 0
 --- !u!1 &449775091 stripped
 GameObject:
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 9
   debug: 0
 --- !u!1 &551080207 stripped
 GameObject:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -2, y: 0}
-  parallaxSpeed: 5
+  parallaxSpeed: 3
   debug: 0
 --- !u!1 &563045095 stripped
 GameObject:
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 8
   debug: 0
 --- !u!1 &644085261 stripped
 GameObject:
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 8
   debug: 0
 --- !u!1 &692886311 stripped
 GameObject:
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 4
   debug: 0
 --- !u!1 &804590557 stripped
 GameObject:
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 9
   debug: 0
 --- !u!1 &868760269 stripped
 GameObject:
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -2, y: 0}
-  parallaxSpeed: 5
+  parallaxSpeed: 3
   debug: 0
 --- !u!1001 &1414321117
 Prefab:
@@ -416,7 +416,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 434110, guid: 909b9d4ab352b2543a0adef326634e79, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 427440, guid: 909b9d4ab352b2543a0adef326634e79, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 469694, guid: 909b9d4ab352b2543a0adef326634e79, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 909b9d4ab352b2543a0adef326634e79, type: 2}
@@ -452,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 4
   debug: 0
 --- !u!1 &1527791346 stripped
 GameObject:
@@ -470,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -2, y: 0}
-  parallaxSpeed: 5
+  parallaxSpeed: 3
   debug: 0
 --- !u!1 &1571884824 stripped
 GameObject:
@@ -503,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 6
   debug: 0
 --- !u!1 &1631167430 stripped
 GameObject:
@@ -521,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 6
   debug: 0
 --- !u!1001 &1645540116
 Prefab:
@@ -566,6 +574,14 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -6.45
       objectReference: {fileID: 0}
+    - target: {fileID: 411234, guid: 6d2d0acb69876f8439fa9844111511bc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 411234, guid: 6d2d0acb69876f8439fa9844111511bc, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.1875
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d2d0acb69876f8439fa9844111511bc, type: 2}
   m_IsPrefabParent: 0
@@ -603,7 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 4
   debug: 0
 --- !u!1 &2001934752 stripped
 GameObject:
@@ -636,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -2, y: 0}
-  parallaxSpeed: 5
+  parallaxSpeed: 3
   debug: 0
 --- !u!1 &2096758540 stripped
 GameObject:
@@ -654,5 +670,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 0}
-  parallaxSpeed: 7
+  parallaxSpeed: 9
   debug: 0
