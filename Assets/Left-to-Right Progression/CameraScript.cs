@@ -1,36 +1,26 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-using Google.Cast.RemoteDisplay;
 
 public class CameraScript : MonoBehaviour
 {
     private float i, countdownTime, cameraSpeed = 1;
     private int counter;
     private bool coroutineStarted = false;
-
-    public CastRemoteDisplayManager CastDisplayManager;
-    public Image logo;
-    public bool slowMotion = false;
-    public bool start = false;
-    public bool cameraMovement = false;
-
     [SerializeField]
     private GameObject[] countDown = new GameObject[4];
     private GameObject Three, Two, One, Go;
-    
-    void OnEnable(){
-        start = false;
-        slowMotion = false;
-        cameraMovement = false;
-        coroutineStarted = false;
+    public enum gameState
+    {
+        Menu,
+        Begin,
+        GameTime,
+        EndSlow
     }
-      
+    public gameState _currentState = gameState.Begin;
+    
     // Update is called once per frame
     void Update()
     {
-
-        // DEBUGGING IF'S FOR ADJUSTMENT
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             cameraSpeed += 0.25f;
@@ -39,34 +29,30 @@ public class CameraScript : MonoBehaviour
         {
             cameraSpeed -= 0.25f;
         }
+        if (_currentState == gameState.Menu)
+        {
 
-        // TITLE SCREEN
-        if (!CastDisplayManager.IsCasting() && logo.enabled == false)
-        {
-            logo.enabled = true;
-            start = false;
-            cameraMovement = false;
-            i = 0;
         }
-        // GAME SCROLL BEGIN
-        else if (CastDisplayManager.IsCasting())
+        else if (_currentState == gameState.Begin)
         {
-            logo.enabled = false;
          
              i += Time.deltaTime;
-            if(i>=6 && !coroutineStarted)
+            if(!coroutineStarted)
             {
                 StartCoroutine(CountDown());
                 coroutineStarted = true;
             }
-            if (i >= 10)
-                start = true;
+            if (i >= 4)
+            
+                _currentState = gameState.GameTime;
+            
+
         }
-        else if (start && !cameraMovement){
+        else if (_currentState == gameState.GameTime)
+        {
             CameraMovement();
-            cameraMovement = true;
         }
-        else if (slowMotion)
+        else if (_currentState == gameState.EndSlow)
         {
             //MLG theme+zoom+slowmotion
         }
@@ -117,5 +103,4 @@ public class CameraScript : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
-
 }
