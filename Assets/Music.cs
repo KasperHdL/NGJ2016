@@ -12,7 +12,7 @@ public class Music : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		introHasPlayed = false;
-		aS.volume = 0.5f;
+		aS.volume = 0.3f;
 	}
 	
 	// Update is called once per frame
