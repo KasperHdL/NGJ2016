@@ -62,9 +62,10 @@ public class Grappler : MonoBehaviour {
         if(isToungeOut){
             Vector2 v = (tounge.transform.position - transform.position);
             toungeLength = v.magnitude;
-            transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * (Mathf.Atan2(v.y,v.x)));
-            lineRenderer.SetPosition(0,transform.position);
-            lineRenderer.SetPosition(1,tounge.transform.position);
+            transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * (Mathf.Atan2(v.y,v.x))); 
+            lineRenderer.SetPosition(0,new Vector3(transform.position.x,transform.position.y,-1));
+            lineRenderer.SetPosition(1,new Vector3(tounge.transform.position.x,tounge.transform.position.y,-1));
+            
         }
 
         if(transform.position.y <= waterLevel && !hasPlayedSplashSound){
