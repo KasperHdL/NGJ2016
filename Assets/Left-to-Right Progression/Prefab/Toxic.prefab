@@ -10,8 +10,7 @@ GameObject:
   - 4: {fileID: 467440}
   - 212: {fileID: 21269634}
   - 114: {fileID: 11426490}
-  - 65: {fileID: 6519682}
-  - 65: {fileID: 6588360}
+  - 68: {fileID: 6866754}
   m_Layer: 0
   m_Name: Toxic
   m_TagString: Untagged
@@ -26,35 +25,43 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.38, y: -1.17, z: -2.5}
+  m_LocalPosition: {x: -6.57, y: -1.22, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6519682
-BoxCollider:
+--- !u!68 &6866754
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186766}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9625721, y: 7.7, z: 2}
-  m_Center: {x: -1.4537148, y: 0, z: 0}
---- !u!65 &6588360
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186766}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.177755, y: 1.7120819, z: 2}
-  m_Center: {x: -0.34612226, y: -2.993959, z: 0}
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 2.1415834, y: -3.7750351}
+  - {x: -2.4345183, y: -3.7200305}
+  - {x: -2.4433022, y: 0.54108155}
+  - {x: -2.4520383, y: 1.5310084}
+  - {x: -2.4150867, y: 3.3989048}
+  - {x: -1.9808521, y: 3.8881435}
+  - {x: -1.1855888, y: 3.8451736}
+  - {x: -0.49059033, y: 3.1520948}
+  - {x: -0.55864525, y: 2.261234}
+  - {x: -1.5719404, y: 1.2447567}
+  - {x: -1.5820231, y: 0.6179311}
+  - {x: -0.37400413, y: -0.6001916}
+  - {x: -0.40350986, y: -1.8581765}
+  - {x: 0.2317338, y: -2.4235327}
+  - {x: 0.55192876, y: -2.2440999}
+  - {x: 1.5479276, y: -2.2558439}
+  - {x: 1.8243008, y: -2.6252334}
+  - {x: 1.8435802, y: -3.3498728}
+  - {x: 2.1505792, y: -3.6974657}
 --- !u!114 &11426490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,7 +100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 827384fbe983b6a4a85ba63ec242f65c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.841}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9411765}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
