@@ -19,8 +19,9 @@ public class PlayerDeath : MonoBehaviour {
         }
 	
 	}
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider other)
     {
+        Debug.Log("YO");
         if(_players.Contains(other.gameObject)) {
 
             PlayerDie(other.gameObject);
@@ -29,6 +30,6 @@ public class PlayerDeath : MonoBehaviour {
     void PlayerDie(GameObject player)
     {
         //Disable the player for the round
-        //Destroy(player);
+        Destroy(player,1);
     }
 }

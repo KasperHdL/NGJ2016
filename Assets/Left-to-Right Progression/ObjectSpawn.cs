@@ -4,7 +4,8 @@ using System.Collections;
 public class ObjectSpawn : MonoBehaviour {
     [SerializeField]
     private GameObject[] setOfGrapPoints = new GameObject[8];
-    private GameObject[] ActiveGrapPoints = new GameObject[5];
+    private GameObject[] ActiveGrapPoints = new GameObject[4];
+    public GameObject toxicCloud;
     private float sizeToVectorFactor = 3.5536f;
     private Vector3 _CameraPrePos, _currentCameraPos;
     private Bounds _cameraBounds;
