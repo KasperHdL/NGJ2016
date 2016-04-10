@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
         bool isButtonDown = _controller.GetButtonState();
 
         if(isButtonDown && !grappler.isToungeOut){
-            Debug.Log("Running");
+//            Debug.Log("Running");
             grappler.ShootTounge(_controller.GetControllerDirection());
         }
         else if(!isButtonDown && grappler.isToungeOut)

@@ -12,7 +12,8 @@ public class Controller : MonoBehaviour {
 	private RectTransform rt;
 	private float lastRotation;
 	public bool button;
-	private int buttonFingerIndex;
+	public int buttonFingerId = -1;
+    public int circleFingerId = -1;
     
     public bool debug = false;
 
@@ -22,6 +23,8 @@ public class Controller : MonoBehaviour {
     
     private Player _player;
     public GameObject player_prefab;
+    
+    public int touches;
 
 
 	// Use this for initialization
@@ -38,7 +41,7 @@ public class Controller : MonoBehaviour {
 
 		screenX = Screen.width;
 		screenY = Screen.height;
-		circleCenterPoint = new Vector2(screenX/4, screenY/4);
+		circleCenterPoint = new Vector2(screenX/4, screenY/2);
 	}
 
 	// Update is called once per frame
@@ -46,16 +49,41 @@ public class Controller : MonoBehaviour {
         if(!controlledLocally)return;
      
         #if !UNITY_EDITOR
+           if(Input.touchCount == 0){
+                controlVector = Vector2.zero;
+           }
+           
+           button = Input.touchCount == 2;
+           
            for(int i = 0; i < Input.touchCount; i++){
-                TouchPhase phase = Input.GetTouch(i).phase;
-                if(phase != TouchPhase.Ended && phase != TouchPhase.Canceled){
-                    if(Input.GetTouch(i).position.x > screenX/2){
-                        button = true;
-                        buttonFingerIndex = i;
-                    }
+                Touch t = Input.GetTouch(i);
+                TouchPhase phase = t.phase;
+                
+                
+                if(t.position.x < screenX/2){
+                    circleFingerPoint = t.position;
+                    Vector2 temp = (circleFingerPoint - circleCenterPoint);
+                    controlVector = temp/temp.magnitude;
 
-                    if(Input.GetTouch(i).position.x < screenX/2){
-                        circleFingerPoint = Input.GetTouch(i).position;
+                    Vector2 tempRight = new Vector2(0, 1);
+
+                    float rotationTemp = Vector2.Angle(tempRight, controlVector);
+
+                    rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
+
+                    lastRotation = rotationTemp;
+                    
+                    break;
+                }
+                
+                    /*
+                    if(buttonFingerId == -1 && t.fingerId != circleFingerId && t.position.x > screenX/2){
+                        button = true;
+                        buttonFingerId = t.fingerId;
+                        continue;
+                    }
+                    if(circleFingerId == -1 && t.fingerId != buttonFingerId && t.position.x < screenX/2){
+                        circleFingerPoint = t.position;
                         Vector2 temp = (circleFingerPoint - circleCenterPoint);
                         controlVector = temp/temp.magnitude;
 
@@ -66,16 +94,30 @@ public class Controller : MonoBehaviour {
                         rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
 
                         lastRotation = rotationTemp;
-                    }
+                        
+                        circleFingerId = t.fingerId;
+                        continue;
+                    }     
+                    if(t.fingerId == circleFingerId && t.position.x < screenX/2){
+                        circleFingerPoint = t.position;
+                        Vector2 temp = (circleFingerPoint - circleCenterPoint);
+                        controlVector = temp/temp.magnitude;
 
-                }else{
-                    if(Input.GetTouch(i).position.x > screenX/2){
-                        button = false;
+                        Vector2 tempRight = new Vector2(0, 1);
+
+                        float rotationTemp = Vector2.Angle(tempRight, controlVector);
+
+                        rt.transform.Rotate(Vector3.forward, rotationTemp-lastRotation, Space.Self);
+
+                        lastRotation = rotationTemp;
+                        continue;
                     }
-                }
-            }
+                    */
+               
+           }
         #else
-       
+          button = Input.GetMouseButton(0);
+          controlVector = ((Vector2)Input.mousePosition - circleCenterPoint).normalized;
        #endif
 	}
 
@@ -100,11 +142,14 @@ public class Controller : MonoBehaviour {
             
             stream.SendNext(button);
             stream.SendNext(controlVector);
+            stream.SendNext(Input.touchCount);
         }
         else
         {
            button           = (bool) stream.ReceiveNext();
            controlVector    = (Vector2) stream.ReceiveNext();
+           
+           touches   = (int) stream.ReceiveNext();
         }
         
         

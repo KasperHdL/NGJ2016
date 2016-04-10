@@ -23,7 +23,7 @@ public class NetworkingManager : PunBehaviour {
 	
 	public override void OnJoinedLobby()
     {
-            PhotonNetwork.JoinRoom("Frog");
+            PhotonNetwork.JoinRoom("Frog1");
         
     }
     public override void OnPhotonJoinRoomFailed(object[] arr)
@@ -34,7 +34,7 @@ public class NetworkingManager : PunBehaviour {
     
     public void CastingStarted(){
         isCaster = true;
-            PhotonNetwork.CreateRoom("Frog");
+        PhotonNetwork.CreateRoom("Frog1");
         
     }
     
