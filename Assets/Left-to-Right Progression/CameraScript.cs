@@ -18,6 +18,8 @@ public class CameraScript : MonoBehaviour
     }
     public gameState _currentState = gameState.Begin;
     
+    public NetworkingManager networkingManager;
+    
     // Update is called once per frame
     void Update()
     {
@@ -63,28 +65,30 @@ public class CameraScript : MonoBehaviour
     }
     private IEnumerator CountDown()
     {
-        Three = Instantiate(countDown[0], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        Three = Instantiate(countDown[0], new Vector3(0, 0,-30), Quaternion.identity) as GameObject;
         StartCoroutine(Iteration(Three));
         yield return new WaitForSeconds(1);
         Destroy(Three);
 
 
-        Two = Instantiate(countDown[1], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        Two = Instantiate(countDown[1], new Vector3(0, 0,-30), Quaternion.identity) as GameObject;
         StartCoroutine(Iteration(Two));
         yield return new WaitForSeconds(1);
         Destroy(Two);
        
 
-        One = Instantiate(countDown[2], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        One = Instantiate(countDown[2], new Vector3(0, 0,-30), Quaternion.identity) as GameObject;
         StartCoroutine(Iteration(One));
         yield return new WaitForSeconds(1);
         Destroy(One);
        
 
-        Go = Instantiate(countDown[3], new Vector3(0, 0,-5), Quaternion.identity) as GameObject;
+        Go = Instantiate(countDown[3], new Vector3(0, 0,-30), Quaternion.identity) as GameObject;
         StartCoroutine(Iteration(Go));
         yield return new WaitForSeconds(1);
         Destroy(Go);
+        
+        networkingManager.Unfreeze();
        
     }
 

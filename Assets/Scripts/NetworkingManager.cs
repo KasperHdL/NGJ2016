@@ -7,7 +7,9 @@ using Photon;
 
 public class NetworkingManager : PunBehaviour {
 
-    public GameObject[] frogs = new GameObject[4];
+    public Vector3[] spawnPositions;
+
+    public static GameObject[] frogs = new GameObject[4];
     public static int count = 0;
     public int controlIndex = 0;
     
@@ -49,6 +51,9 @@ public class NetworkingManager : PunBehaviour {
         staticControls.enabled = false;
         
         
+        cameraScript.enabled = false;
+        objectSpawn.enabled = false;
+        
         PlayersConnected.enabled = false;
         mainPicture.enabled = true;
         hostBackground.enabled = false;
@@ -75,6 +80,18 @@ public class NetworkingManager : PunBehaviour {
         
     }
     
+    public void Unfreeze(){
+         
+        for (int i = 0; i < frogs.Length; i++)
+        {
+            frogs[i].transform.position = spawnPositions[i];
+            frogs[i].GetComponent<Player>().deactivate = false;
+            frogs[i].GetComponent<Rigidbody2D>().isKinematic = false;
+            frogs[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+        }
+       
+    }
+    
     private void StartGame(){
         gameStarted = true;
         
@@ -84,7 +101,6 @@ public class NetworkingManager : PunBehaviour {
         controller.index = count;
         controller.controlledLocally = true;
         
-        frogs[count] = go;
         
         for (int i = 0; i < objToActivateOnStart.Length; i++)
         {
@@ -101,8 +117,17 @@ public class NetworkingManager : PunBehaviour {
         mainPicture.enabled = false;
         PlayersConnected.enabled = false;
         
+        
+        for (int i = 0; i < frogs.Length; i++)
+        {
+            frogs[i].transform.position = spawnPositions[i];
+            frogs[i].GetComponent<Player>().deactivate = true;
+            frogs[i].GetComponent<Rigidbody2D>().isKinematic = true;
+            frogs[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+        }
         cameraScript.enabled = true;
         objectSpawn.enabled = true;
+       
         
     }
     
@@ -145,15 +170,12 @@ public class NetworkingManager : PunBehaviour {
     {
         
         if(!isCaster && count < 4){
-             GameObject go = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity,0);
+            GameObject go = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity,0);
             Controller controller = go.GetComponent<Controller>();
             controller.enabled = true;
             controller.index = count;
             controller.controlledLocally = true;
             
-            
-            
-            frogs[count] = go;
             castButton.SetActive(false);
             mainPicture.enabled = false;
            

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     [HideInInspector]    
     public Rigidbody2D body;
     
+    public bool deactivate = false;
     void Awake(){
         body = GetComponent<Rigidbody2D>();
         grappler = GetComponent<Grappler>();
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(_controller == null)return;
+        if(_controller == null || deactivate)return;
 
         bool isButtonDown = _controller.GetButtonState();
 

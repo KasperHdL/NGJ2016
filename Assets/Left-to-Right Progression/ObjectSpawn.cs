@@ -16,15 +16,15 @@ public class ObjectSpawn : MonoBehaviour {
         _currentCameraPos = _cameraBounds.center;
         _CameraPrePos = _cameraBounds.center;
         ArrayManager(Instantiate(setOfGrapPoints[6],
-                                    new Vector3(_cameraBounds.center.x, _cameraBounds.center.y+ 0.85f, -1),
+                                    new Vector3(_cameraBounds.center.x, _cameraBounds.center.y+ 0.85f, -18),
                                     setOfGrapPoints[6].transform.rotation),
                                     ActiveGrapPoints);
         ArrayManager(Instantiate(setOfGrapPoints[1],
-                                    new Vector3(_cameraBounds.center.x + ((_cameraBounds.extents.x/1.75f) * sizeToVectorFactor), _cameraBounds.center.y+ 0.85f, -1),
+                                    new Vector3(_cameraBounds.center.x + ((_cameraBounds.extents.x/1.75f) * sizeToVectorFactor), _cameraBounds.center.y+ 0.85f, -18),
                                     setOfGrapPoints[1].transform.rotation),
                                     ActiveGrapPoints);
         ArrayManager(Instantiate(setOfGrapPoints[2],
-                                    new Vector3((_cameraBounds.center.x + (_cameraBounds.extents.x*1.075f* sizeToVectorFactor)), _cameraBounds.center.y+ 0.85f, -1),
+                                    new Vector3((_cameraBounds.center.x + (_cameraBounds.extents.x*1.075f* sizeToVectorFactor)), _cameraBounds.center.y+ 0.85f, -18),
                                     setOfGrapPoints[2].transform.rotation),
                                     ActiveGrapPoints);
 	}
@@ -37,7 +37,7 @@ public class ObjectSpawn : MonoBehaviour {
             _CameraPrePos = _cameraBounds.center;
             index = Random.Range(1, setOfGrapPoints.Length);
             ArrayManager(Instantiate(setOfGrapPoints[index],
-                                    new Vector3((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y+ 0.85f, -1),
+                                    new Vector3((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y+ 0.85f, -18),
                                     setOfGrapPoints[index].transform.rotation), 
                                     ActiveGrapPoints);
             

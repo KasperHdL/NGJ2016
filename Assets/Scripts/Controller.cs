@@ -46,7 +46,8 @@ public class Controller : MonoBehaviour {
         
         if(NetworkingManager.isCaster){
              
-            GameObject p = (GameObject) Instantiate(player_prefab, Vector3.zero, Quaternion.identity);
+            GameObject p = (GameObject) Instantiate(player_prefab, new Vector3(0,0,-20), Quaternion.identity);
+            NetworkingManager.frogs[NetworkingManager.count] = p;
             Player player = p.GetComponent<Player>();
             player.reticle.GetComponent<SpriteRenderer>().sprite = NetworkingManager.staticReticleSprite[NetworkingManager.count];
             player.SetController(this);
