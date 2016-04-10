@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.38, y: -1.17, z: 6.5}
+  m_LocalPosition: {x: -6.45, y: -1.17, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412146}
@@ -122,8 +122,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41271114, y: -0.34376067, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.41271114, y: -1.44, z: 10}
+  m_LocalScale: {x: 1, y: 1.1875, z: 1}
   m_Children: []
   m_Father: {fileID: 412146}
   m_RootOrder: 3
@@ -303,16 +303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687e4807ee0a68042a431ed2f43b5dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CastDisplayManager: {fileID: 0}
-  logo: {fileID: 0}
-  slowMotion: 0
-  start: 0
-  cameraMovement: 0
   countDown:
   - {fileID: 190256, guid: 159c478517ea5bd45b3d52202aa44082, type: 2}
   - {fileID: 140544, guid: 7e3285712a9fa19489bb1c9baf8e7037, type: 2}
   - {fileID: 125036, guid: 734732e12d51fb543a2e7e2166217fe4, type: 2}
   - {fileID: 193216, guid: 8f2cf8d3d26a3ad4484ac4e793cb356c, type: 2}
+  _currentState: 1
 --- !u!124 &12428932
 Behaviour:
   m_ObjectHideFlags: 1
