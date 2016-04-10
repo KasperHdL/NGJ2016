@@ -38,7 +38,7 @@ public class ObjectSpawn : MonoBehaviour {
             index = Random.Range(1, setOfGrapPoints.Length);
             ArrayManager(Instantiate(setOfGrapPoints[index],
                                     new Vector2((_cameraBounds.center.x + (_cameraBounds.extents.x * sizeToVectorFactor)), _cameraBounds.center.y),
-                                    setOfGrapPoints[0].transform.rotation), 
+                                    setOfGrapPoints[index].transform.rotation), 
                                     ActiveGrapPoints);
             
             
