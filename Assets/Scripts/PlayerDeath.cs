@@ -19,9 +19,8 @@ public class PlayerDeath : MonoBehaviour {
         }
 	
 	}
-	void OnTriggerEnter2D(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("YO");
         if(_players.Contains(other.gameObject)) {
 
             PlayerDie(other.gameObject);
