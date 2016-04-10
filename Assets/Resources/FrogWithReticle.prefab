@@ -32,6 +32,7 @@ GameObject:
   - 231: {fileID: 23193000}
   - 120: {fileID: 12034112}
   - 58: {fileID: 5831606}
+  - 82: {fileID: 8214514}
   m_Layer: 8
   m_Name: FrogWithReticle
   m_TagString: Untagged
@@ -93,6 +94,75 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .800000012
+--- !u!82 &8214514
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190692}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11401220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +198,14 @@ MonoBehaviour:
   isToungePulling: 0
   spriteToungeIn: {fileID: 21300000, guid: dc037e391efd47340bd8b02f04188fbc, type: 3}
   spriteToungeOut: {fileID: 21300000, guid: 593f1bc730cfc9f498859b798ad6b1d4, type: 3}
+  frogSoundSource: {fileID: 8214514}
+  SOUND_TongueConnect: []
+  SOUND_TongueIn: []
+  SOUND_TongueOut: []
+  SOUND_Splash:
+  - {fileID: 8300000, guid: d4c7b0234798cbf4ca16583e8e91379d, type: 3}
+  - {fileID: 8300000, guid: 096df25e079b9ad469cc61f26fcb0b9d, type: 3}
+  waterLevel: 0
 --- !u!114 &11426678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +327,71 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: SOUND_Splash.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueIn.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueOut.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueConnect.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: frogSoundSource
+      value: 
+      objectReference: {fileID: 8214514}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueConnect.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc9136aa5fa01014a94842392edfc83c, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueConnect.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 542c1aa481637434387356d237cbca5a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueConnect.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f0717fb0e92822740b1ed0e675c110c1, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueIn.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f3319e8b64d35de42b93e524f7a3bd86, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueIn.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c59e97ba3380a44795b5be4472929a2, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueIn.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ccb7ac267abbc24fbcdf58ab559e612, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueOut.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 642fe191941764a46b309682d4497be1, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueOut.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ae418ae1ac5d394194e478bcaa893d2, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_tongueOut.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 94da9a3f3d8501248804ff0a5e486a5f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_Splash.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d4c7b0234798cbf4ca16583e8e91379d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SOUND_Splash.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 096df25e079b9ad469cc61f26fcb0b9d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190692}

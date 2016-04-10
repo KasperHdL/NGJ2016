@@ -11,7 +11,6 @@ GameObject:
   - 20: {fileID: 2070706}
   - 92: {fileID: 9222662}
   - 124: {fileID: 12474498}
-  - 114: {fileID: 11405236}
   - 114: {fileID: 11448508}
   - 114: {fileID: 11446804}
   m_Layer: 0
@@ -74,21 +73,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194902}
   m_Enabled: 1
---- !u!114 &11405236
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 194902}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a508f667739b014490d3efa7e70d9bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelImage: {fileID: 0}
-  debug: 0
-  controlledLocally: 0
-  player_prefab: {fileID: 0}
 --- !u!114 &11446804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,7 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a508f667739b014490d3efa7e70d9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImage: {fileID: 0}
   debug: 0
   controlledLocally: 0
   player_prefab: {fileID: 0}

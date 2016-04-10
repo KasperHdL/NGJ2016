@@ -29,6 +29,18 @@ public class Grappler : MonoBehaviour {
     
     private SpriteRenderer spriteRenderer;
     
+    public AudioSource frogSoundSource;
+    public AudioClip[] SOUND_TongueConnect;
+    public AudioClip[] SOUND_TongueIn;
+    public AudioClip[] SOUND_TongueOut;
+    public AudioClip[] SOUND_Splash;
+
+    public float waterLevel;
+
+    private bool hasPlayedSplashSound;
+
+    private int ranX;
+
     void Awake(){
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = spriteToungeIn;
@@ -53,8 +65,17 @@ public class Grappler : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * (Mathf.Atan2(v.y,v.x)));
             lineRenderer.SetPosition(0,transform.position);
             lineRenderer.SetPosition(1,tounge.transform.position);
-            
         }
+
+        if(transform.position.y <= waterLevel && !hasPlayedSplashSound){
+            ranX = Random.Range(0, SOUND_Splash.Length);
+            frogSoundSource.clip = SOUND_Splash[ranX];
+            frogSoundSource.Play();
+
+            hasPlayedSplashSound = true;
+        }
+        if(hasPlayedSplashSound && transform.position.y > waterLevel)
+            hasPlayedSplashSound = false;
     }
 
 	
@@ -67,6 +88,10 @@ public class Grappler : MonoBehaviour {
         tounge.ShootTounge(dir);
         spriteRenderer.sprite = spriteToungeOut;
 
+        ranX = Random.Range(0, SOUND_TongueOut.Length);
+
+        frogSoundSource.clip = SOUND_TongueOut[ranX];
+        frogSoundSource.Play();
     }
     
     public void RetractTounge(){
@@ -85,6 +110,11 @@ public class Grappler : MonoBehaviour {
         
         isToungeJointed = false;
         tounge.gameObject.SetActive(false);
+
+        ranX = Random.Range(0, SOUND_TongueIn.Length);
+
+        frogSoundSource.clip = SOUND_TongueIn[ranX];
+        frogSoundSource.Play();
     }
     
     public void ToungeHit(){
@@ -100,6 +130,11 @@ public class Grappler : MonoBehaviour {
         }
                 
         isToungeJointed = true;
+
+        ranX = Random.Range(0, SOUND_TongueConnect.Length);
+
+        frogSoundSource.clip = SOUND_TongueConnect[ranX];
+        frogSoundSource.Play();
     }
     
 }
