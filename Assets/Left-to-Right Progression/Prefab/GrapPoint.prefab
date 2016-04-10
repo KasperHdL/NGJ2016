@@ -12,7 +12,11 @@ GameObject:
   - 58: {fileID: 5867430}
   m_Layer: 9
   m_Name: GrapPoint
+<<<<<<< HEAD
   m_TagString: Grabable
+=======
+  m_TagString: Player
+>>>>>>> master
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
