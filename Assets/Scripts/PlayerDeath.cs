@@ -26,10 +26,9 @@ public class PlayerDeath : MonoBehaviour {
             PlayerDie(other.gameObject);
         }
     }
-    
     void PlayerDie(GameObject player)
     {
         //Disable the player for the round
-        player.SetActive(false);
+        Destroy(player,1);
     }
 }
