@@ -35,7 +35,7 @@ GameObject:
   - 82: {fileID: 8292292}
   m_Layer: 8
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   maxSpeed: 300
   grappler: {fileID: 11413848}
   body: {fileID: 0}
+  deactivate: 0
 --- !u!114 &11413848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,7 +217,7 @@ MonoBehaviour:
   SOUND_Splash:
   - {fileID: 8300000, guid: aba59ba53e1f10b49a5becf7810ac665, type: 3}
   - {fileID: 8300000, guid: 0e2686b01cb4d1e4f99fc4279e6ece77, type: 3}
-  waterLevel: 0
+  waterLevel: -4
 --- !u!114 &11426678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,6 +436,14 @@ Prefab:
       propertyPath: SOUND_Splash.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 0e2686b01cb4d1e4f99fc4279e6ece77, type: 3}
+    - target: {fileID: 0}
+      propertyPath: waterLevel
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190692}

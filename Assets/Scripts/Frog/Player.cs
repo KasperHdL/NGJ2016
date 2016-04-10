@@ -30,10 +30,15 @@ public class Player : MonoBehaviour {
         GetComponent<SpriteRenderer>().sprite = grappler.spriteToungeIn;
         gameObject.SetActive(true);
     }
+    
+ 
 	
 	// Update is called once per frame
 	void Update () {
-        if(_controller == null || deactivate)return;
+        if(deactivate){
+            return;
+        }
+        else if(_controller == null)return;
 
         bool isButtonDown = _controller.GetButtonState();
 

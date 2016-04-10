@@ -23,14 +23,9 @@ public class PlayerDeath : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
     {
-        if(_players.Contains(other.gameObject)) {
+        if(other.tag == "Player") {
 
-            PlayerDie(other.gameObject);
+            Destroy(other.gameObject);
         }
-    }
-    void PlayerDie(GameObject player)
-    {
-        //Disable the player for the round
-        Destroy(player,1);
     }
 }

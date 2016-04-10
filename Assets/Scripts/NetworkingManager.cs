@@ -38,6 +38,7 @@ public class NetworkingManager : PunBehaviour {
     
     private bool gameStarted = false;
     
+    public GameObject music;
     public GameObject[] objToActivateOnCasting;
     public GameObject[] objToDeactivateOnCasting;
     public GameObject[] objToDeactivateOnStart;
@@ -89,6 +90,8 @@ public class NetworkingManager : PunBehaviour {
             frogs[i].GetComponent<Rigidbody2D>().isKinematic = false;
             frogs[i].GetComponent<Rigidbody2D>().gravityScale = 1;
         }
+        
+        
        
     }
     
@@ -98,7 +101,6 @@ public class NetworkingManager : PunBehaviour {
         GameObject go = PhotonNetwork.Instantiate("PlayerController", Vector3.zero, Quaternion.identity, 0);
         Controller controller = go.GetComponent<Controller>();
         controller.enabled = true;
-        controller.index = count;
         controller.controlledLocally = true;
         
         
@@ -111,11 +113,11 @@ public class NetworkingManager : PunBehaviour {
             objToDeactivateOnStart[i].SetActive(false);
         }
         
-        controls.enabled = true;
         
         hostBackground.enabled = false;
         mainPicture.enabled = false;
         PlayersConnected.enabled = false;
+        controls.enabled = true;
         
         
         for (int i = 0; i < frogs.Length; i++)
@@ -178,7 +180,7 @@ public class NetworkingManager : PunBehaviour {
             
             castButton.SetActive(false);
             mainPicture.enabled = false;
-           
+           music.SetActive(false);
         }   
         
     }
