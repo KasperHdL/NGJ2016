@@ -9,17 +9,13 @@ public class NetworkingManager : PunBehaviour {
 
     public static bool isCaster;
     
-    public bool gonnaCastMan = false;
-    
     public Image controllerPanel;
-    
-
-	// Use this for initialization
-	void Start () {
+   
+    void Start(){
         PhotonNetwork.ConnectUsingSettings("0.1");
-        isCaster = gonnaCastMan;
+        
     }
- 
+
     void OnGUI()
     {
         GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
@@ -27,16 +23,19 @@ public class NetworkingManager : PunBehaviour {
 	
 	public override void OnJoinedLobby()
     {
-        if(isCaster)
-            PhotonNetwork.CreateRoom("Frog");
-        else
-            PhotonNetwork.JoinRoom("Frog");
+            PhotonNetwork.JoinRoom("Frog1");
         
     }
     public override void OnPhotonJoinRoomFailed(object[] arr)
     {
             Debug.LogError("The Google Caster must create the photon room");
             
+    }
+    
+    public void CastingStarted(){
+        isCaster = true;
+        PhotonNetwork.CreateRoom("Frog1");
+        
     }
     
     

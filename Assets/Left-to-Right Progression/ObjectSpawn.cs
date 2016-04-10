@@ -11,7 +11,7 @@ public class ObjectSpawn : MonoBehaviour {
     private Bounds _cameraBounds;
     private int index; 
    
-	void Awake () {
+	void OnEnable () {
         _cameraBounds = CameraSizing.CameraBounds(this.GetComponent<Camera>());
         _currentCameraPos = _cameraBounds.center;
         _CameraPrePos = _cameraBounds.center;

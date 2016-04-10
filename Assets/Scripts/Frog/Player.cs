@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    private Controller _controller;
+    public Controller _controller;
+    public ReticleRotation reticle;
     
     public float maxSpeed = 5000;
     
@@ -27,20 +28,19 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(_controller == null)return;
-        
-        #if UNITY_ANDROID
-            if(_controller.GetButtonState())
-                grappler.ShootTounge(_controller.GetControllerDirection());
-            else
-                grappler.RetractTounge();
-        #else
-            
-            if(Input.GetKeyUp(KeyCode.Space))
-                grappler.RetractTounge();
-            if(Input.GetKeyDown(KeyCode.Space)){
-                grappler.ShootTounge((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
-            }
-        #endif
+
+        bool isButtonDown = _controller.GetButtonState();
+
+        Vector2 dir = _controller.GetControllerDirection();
+        reticle.SetDirection(dir);
+
+        if(isButtonDown && !grappler.isToungeOut){
+//            Debug.Log("Running");
+            grappler.ShootTounge(dir);
+        }
+        else if(!isButtonDown && grappler.isToungeOut)
+            grappler.RetractTounge();
+   
       
         
         

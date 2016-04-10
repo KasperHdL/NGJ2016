@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grabable
+  - Grappoint Set
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - PlayerIgnore
   - 
   - 
   - 

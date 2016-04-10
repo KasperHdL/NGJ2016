@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Tounge : MonoBehaviour {
 
-    [HideInInspector]
     public Rigidbody2D body;
     
     [HideInInspector]
@@ -12,7 +11,7 @@ public class Tounge : MonoBehaviour {
     public float forceTounge = 10000;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
 	    body = GetComponent<Rigidbody2D>();
 	}
 	
@@ -32,6 +31,7 @@ public class Tounge : MonoBehaviour {
     public void ShootTounge(Vector2 dir){
         body.isKinematic = false;
         body.velocity = Vector2.zero;
-        body.AddForce(dir * forceTounge * Time.deltaTime);
+        //Debug.Log(dir * forceTounge * Time.deltaTime);
+        body.AddForce(dir.normalized * forceTounge * Time.deltaTime);
     }
 }
