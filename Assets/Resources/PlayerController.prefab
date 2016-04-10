@@ -48,6 +48,17 @@ MonoBehaviour:
   controlledLocally: 0
   player_prefab: {fileID: 190692, guid: c5ecd2507bab03a4592a1805a5c1a35d, type: 2}
   touches: 0
+  index: 0
+  spriteToungeIn:
+  - {fileID: 21300000, guid: cf09c49b3f9c70840920292e2ad7db54, type: 3}
+  - {fileID: 21300000, guid: dc037e391efd47340bd8b02f04188fbc, type: 3}
+  - {fileID: 21300000, guid: 5f34859b6e2ae7243abef94f13b42f34, type: 3}
+  - {fileID: 21300000, guid: 0545ed9342c5c9f4fbda35ca1964a98a, type: 3}
+  spritesToungeOut:
+  - {fileID: 21300000, guid: 6b03778a9cb8e2e46b507fa014191738, type: 3}
+  - {fileID: 21300000, guid: 593f1bc730cfc9f498859b798ad6b1d4, type: 3}
+  - {fileID: 21300000, guid: 0eb54c1608a6076488babf2bd2cb0234, type: 3}
+  - {fileID: 21300000, guid: 2acbda985792cc546ada040643a7611e, type: 3}
 --- !u!114 &11440504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,6 +92,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: spriteToungeIn.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeIn.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeOut.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: synchronization
       value: 1
       objectReference: {fileID: 0}
@@ -100,6 +123,66 @@ Prefab:
       propertyPath: circleFingerId
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeIn.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b03778a9cb8e2e46b507fa014191738,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeIn.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 593f1bc730cfc9f498859b798ad6b1d4,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeIn.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0eb54c1608a6076488babf2bd2cb0234,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeIn.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2acbda985792cc546ada040643a7611e,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeOut.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b03778a9cb8e2e46b507fa014191738,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeOut.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 593f1bc730cfc9f498859b798ad6b1d4,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeOut.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0eb54c1608a6076488babf2bd2cb0234,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spritesToungeOut.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2acbda985792cc546ada040643a7611e,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spriteToungeIn.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: cf09c49b3f9c70840920292e2ad7db54,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spriteToungeIn.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: dc037e391efd47340bd8b02f04188fbc,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spriteToungeIn.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f34859b6e2ae7243abef94f13b42f34,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: spriteToungeIn.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0545ed9342c5c9f4fbda35ca1964a98a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 183984}

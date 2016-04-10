@@ -26,15 +26,14 @@ public class Controller : MonoBehaviour {
     
     public int touches;
 
+    public int index;
+    
+    public Sprite[] spriteToungeIn;
+    public Sprite[] spritesToungeOut;
 
 	// Use this for initialization
 	void Start () {
-        if(NetworkingManager.isCaster){
-            GameObject p = (GameObject) Instantiate(player_prefab, Vector3.zero, Quaternion.identity);
-            Player player = p.GetComponent<Player>();
-            player.SetController(this);
-            _player = player;
-        }
+       
         
 		button = false;
 		lastRotation = 0;
@@ -42,7 +41,19 @@ public class Controller : MonoBehaviour {
 		screenX = Screen.width;
 		screenY = Screen.height;
 		circleCenterPoint = new Vector2(screenX/4, screenY/2);
+        
+        NetworkingManager.staticControls.sprite = NetworkingManager.staticControlSprites[NetworkingManager.count];
+        
+        if(NetworkingManager.isCaster){
+             
+            GameObject p = (GameObject) Instantiate(player_prefab, Vector3.zero, Quaternion.identity);
+            Player player = p.GetComponent<Player>();
+            player.reticle.GetComponent<SpriteRenderer>().sprite = NetworkingManager.staticReticleSprite[NetworkingManager.count];
+            player.SetController(this);
+            _player = player;
+        }
 	}
+
 
 	// Update is called once per frame
 	void Update () {

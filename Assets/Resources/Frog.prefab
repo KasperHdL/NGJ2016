@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
   reticle: {fileID: 11426678}
-  maxSpeed: 5000
+  maxSpeed: 300
   grappler: {fileID: 11413848}
   body: {fileID: 0}
 --- !u!114 &11413848
@@ -121,12 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joint: {fileID: 0}
-  pullLength: 5
+  pullLength: 6
   tounge: {fileID: 0}
   tounge_prefab: {fileID: 187350, guid: 8493c5e26c8166a48b678ceb80c5286f, type: 2}
   isToungeOut: 0
   isToungeJointed: 0
-  angularSpeed: 10
+  angularSpeed: 1
   isToungePulling: 0
   spriteToungeIn: {fileID: 21300000, guid: dc037e391efd47340bd8b02f04188fbc, type: 3}
   spriteToungeOut: {fileID: 21300000, guid: 593f1bc730cfc9f498859b798ad6b1d4, type: 3}
@@ -271,6 +271,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: angularSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pullLength
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

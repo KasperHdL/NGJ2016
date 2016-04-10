@@ -22,6 +22,11 @@ public class Player : MonoBehaviour {
     
     public void SetController(Controller controller){
         _controller = controller;
+        
+        _controller.index = NetworkingManager.count;
+        grappler.spriteToungeIn = _controller.spriteToungeIn[NetworkingManager.count];
+        grappler.spriteToungeOut = _controller.spritesToungeOut[NetworkingManager.count++];
+        GetComponent<SpriteRenderer>().sprite = grappler.spriteToungeIn;
         gameObject.SetActive(true);
     }
 	

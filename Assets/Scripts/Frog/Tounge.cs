@@ -32,6 +32,6 @@ public class Tounge : MonoBehaviour {
         body.isKinematic = false;
         body.velocity = Vector2.zero;
         //Debug.Log(dir * forceTounge * Time.deltaTime);
-        body.AddForce(dir.normalized * forceTounge * Time.deltaTime);
+        body.AddForce(dir.normalized * forceTounge);
     }
 }

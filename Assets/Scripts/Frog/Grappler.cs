@@ -51,8 +51,8 @@ public class Grappler : MonoBehaviour {
             Vector2 v = (tounge.transform.position - transform.position);
             toungeLength = v.magnitude;
             transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * (Mathf.Atan2(v.y,v.x)));
-            lineRenderer.SetPosition(0,transform.position);
-            lineRenderer.SetPosition(1,tounge.transform.position);
+            lineRenderer.SetPosition(0,new Vector3(transform.position.x,transform.position.y,-1));
+            lineRenderer.SetPosition(1,new Vector3(tounge.transform.position.x,tounge.transform.position.y,-1));
             
         }
     }
@@ -96,9 +96,9 @@ public class Grappler : MonoBehaviour {
         joint.distance = toungeLength;
         
         
-        if(toungeLength > tounge.transform.position.y){ //change when water is in the game
-            joint.frequency = 1.5f * (toungeLength - pullLength) / pullLength;
-            joint.distance = tounge.transform.position.y;
+        if(toungeLength > tounge.transform.position.y + 15f){ //change when water is in the game
+            joint.frequency = (toungeLength - pullLength) / pullLength;
+            joint.distance = tounge.transform.position.y + 15f;
             
         }
                 
